@@ -59,6 +59,8 @@ rollback-test:
 	docker-compose exec app php artisan migrate:refresh
 tinker:
 	docker-compose exec app php artisan tinker
+artisan:
+	docker-compose exec app php artisan
 test:
 	docker-compose exec app php artisan test
 optimize:

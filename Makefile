@@ -3,7 +3,7 @@ up:
 build:
 	docker-compose build --no-cache --force-rm
 laravel-install:
-	docker-compose exec app composer create-project --prefer-dist laravel/laravel .
+	docker-compose exec app composer create-project --prefer-dist "laravel/laravel=5.5.*" .
 	docker-compose exec app chmod -R 777 storage bootstrap/cache
 create-project:
 	@make build
@@ -59,8 +59,6 @@ rollback-test:
 	docker-compose exec app php artisan migrate:refresh
 tinker:
 	docker-compose exec app php artisan tinker
-artisan:
-	docker-compose exec app php artisan
 test:
 	docker-compose exec app php artisan test
 optimize:
